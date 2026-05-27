@@ -1,10 +1,16 @@
 package com.enderium.smoothmount;
 
-import net.fabricmc.api.ModInitializer;
+import com.enderium.smoothmount.client.SmoothmountClient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.common.Mod;
 
-public class Smoothmount implements ModInitializer {
+@Mod("smoothmount")
+public class Smoothmount {
 
-    @Override
-    public void onInitialize() {
+    public static final String MOD_ID = "smoothmount";
+
+    public Smoothmount() {
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> SmoothmountClient::init);
     }
 }

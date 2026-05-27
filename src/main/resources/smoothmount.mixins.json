@@ -1,14 +1,19 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.enderium.smoothmount.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "mixins": [
+  "package": "com.enderium.smoothmount.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "smoothmount.refmap.json",
+  "client": [
+    "PlayerMixin",
+    "PlayerModelMixin",
+    "PlayerRendererMixin",
+    "CameraMixin",
+    "EntityMixin",
+    "ModelPartMixin",
+    "accesor.ModelPartAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "overwrites": {
-    "requireAnnotations": true
   }
 }

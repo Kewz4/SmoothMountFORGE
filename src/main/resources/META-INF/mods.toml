@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="LGPL-3.0-only"
+issueTrackerURL="https://github.com/Ender-Fake/SmoothMount/issues"
+
+[[mods]]
+    modId="smoothmount"
+    version="${file.jarVersion}"
+    displayName="SmoothMount"
+    description='''
+        Smooth camera and player animations when mounting horses and other mounts.
+    '''
+    logoFile="assets/smoothmount/icon.png"
+    authors="Ender_Fake"
+
+[[dependencies.smoothmount]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.4.4,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.smoothmount]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
