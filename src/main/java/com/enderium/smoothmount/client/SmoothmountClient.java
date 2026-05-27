@@ -28,7 +28,7 @@ public class SmoothmountClient {
         if (event.phase == TickEvent.Phase.START) {
             lastPlayerPosStart = mc.player.position();
         } else {
-            lastPlayerPos = mc.player.oldPosition();
+            lastPlayerPos = new Vec3(mc.player.xOld, mc.player.yOld, mc.player.zOld);
         }
     }
 

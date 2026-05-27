@@ -61,13 +61,13 @@ public class PlayerModelMixin extends HumanoidModel<AbstractClientPlayer> {
         if (stopped) return;
 
         if (pState.dismountAnimation().isStarted()) {
-            ((ModelPartChildren) leftLeg).resetPoseAndChildren();
-            ((ModelPartChildren) rightLeg).resetPoseAndChildren();
-            ((ModelPartChildren) leftArm).resetPoseOnlyChildren();
-            ((ModelPartChildren) rightArm).resetPoseOnlyChildren();
+            ((ModelPartChildren)(Object)leftLeg).resetPoseAndChildren();
+            ((ModelPartChildren)(Object)rightLeg).resetPoseAndChildren();
+            ((ModelPartChildren)(Object)leftArm).resetPoseOnlyChildren();
+            ((ModelPartChildren)(Object)rightArm).resetPoseOnlyChildren();
         } else {
             for (ModelPart part : bodyPartsResetMount) {
-                ((ModelPartChildren) part).resetPoseAndChildren();
+                ((ModelPartChildren)(Object)part).resetPoseAndChildren();
             }
         }
 

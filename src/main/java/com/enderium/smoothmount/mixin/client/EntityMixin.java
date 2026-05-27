@@ -72,7 +72,7 @@ public abstract class EntityMixin implements MountState {
 
         Minecraft instance = Minecraft.getInstance();
         if (player != instance.player) {
-            lastMountPos = player.oldPosition();
+            lastMountPos = new Vec3(player.xOld, player.yOld, player.zOld);
             return;
         }
 
@@ -90,7 +90,7 @@ public abstract class EntityMixin implements MountState {
         if (!(((Object) this) instanceof Player player)) return;
         if (!player.level().isClientSide()) return;
 
-        lastMountPos = player.oldPosition();
+        lastMountPos = new Vec3(player.xOld, player.yOld, player.zOld);
         PlayerAnimationState state = (PlayerAnimationState) player;
         state.smoothMount$stopMount();
 

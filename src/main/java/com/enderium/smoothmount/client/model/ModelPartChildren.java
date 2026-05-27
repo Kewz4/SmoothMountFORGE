@@ -12,7 +12,7 @@ public interface ModelPartChildren {
 
     default void resetPoseOnlyChildren() {
         for (ModelPart value : children().values()) {
-            ((ModelPartChildren) value).resetPoseAndChildren();
+            ((ModelPartChildren)(Object) value).resetPoseAndChildren();
         }
     }
 
