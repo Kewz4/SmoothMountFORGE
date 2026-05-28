@@ -33,8 +33,6 @@ public class PlayerModelMixin extends HumanoidModel<AbstractClientPlayer> {
     private ModelAnimation dismountForwardAnimation;
 
     @Unique
-    private final List<ModelPart> bodyParts = List.of(leftLeg, rightLeg, leftArm, rightArm, head);
-    @Unique
     private final List<ModelPart> bodyPartsResetMount = List.of(leftLeg, rightLeg, leftArm, rightArm);
 
     public PlayerModelMixin(ModelPart modelPart) {
@@ -92,9 +90,12 @@ public class PlayerModelMixin extends HumanoidModel<AbstractClientPlayer> {
 
         Vector3f offset    = new Vector3f(body.x,    body.y,    body.z);
         Vector3f offsetRot = new Vector3f(body.xRot, body.yRot, body.zRot);
-        for (ModelPart part : bodyParts) {
+        for (ModelPart part : bodyPartsResetMount) {
             part.offsetPos(offset);
             part.offsetRotation(offsetRot);
         }
+        // Head follows body position/x-tilt/z-tilt but NOT y-rotation to prevent gaze decoupling
+        head.offsetPos(offset);
+        head.offsetRotation(new Vector3f(body.xRot, 0f, body.zRot));
     }
 }
