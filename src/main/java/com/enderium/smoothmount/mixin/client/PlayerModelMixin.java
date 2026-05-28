@@ -8,6 +8,7 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.world.entity.LivingEntity;
 import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -53,9 +54,10 @@ public class PlayerModelMixin extends HumanoidModel<AbstractClientPlayer> {
             method = "setupAnim",
             at = @At("TAIL")
     )
-    public void setAnim(AbstractClientPlayer entity, float limbSwing, float limbSwingAmount,
+    public void setAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
                         float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-        PlayerAnimationState pState = (PlayerAnimationState) entity;
+        if (!(entity instanceof AbstractClientPlayer player)) return;
+        PlayerAnimationState pState = (PlayerAnimationState) player;
 
         boolean stopped = pState.smoothMount$IsStopped();
         if (stopped) return;
