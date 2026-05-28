@@ -50,7 +50,7 @@ public class PlayerModelMixin extends HumanoidModel<AbstractClientPlayer> {
     }
 
     @Inject(
-            method = "setupAnim(Lnet/minecraft/client/player/AbstractClientPlayer;FFFFF)V",
+            method = "setupAnim",
             at = @At("TAIL")
     )
     public void setAnim(AbstractClientPlayer entity, float limbSwing, float limbSwingAmount,
